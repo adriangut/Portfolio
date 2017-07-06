@@ -1,0 +1,46 @@
+<% include ../partials/header %>
+
+
+<header class="jumbotron">
+    <div class="container">
+        <h1>Welcome to DragonSlayer!</h1>
+        <p>Pick your own draconic nemesis today!</p>
+        <p>
+            <a class="btn btn-primary btn-lg" href="/dragons/new">Add New Dragon</a>
+        </p>
+        <p>
+            <form class="form-inline" action="/dragons" method="GET">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="search" placeholder="Search dragons...">
+                    <input class="btn btn-default" type="submit" value="Search">
+                </div>
+            </form>
+        </p>
+    </div>
+</header>
+
+<div class="row text-center flex-wrap">
+    <div class="col-lg-12">
+        <% if(dragons.length < 1){ %>
+        <h3>No Dragons were found.</h3>
+        <% } else { %>
+        <h3>Our Most Popular Dragons!</h3>
+        <% } %>
+    </div>
+    <% dragons.forEach(function(dragon){ %>
+        <div class="col-md-3 col-sm-6"> 
+            <div class="thumbnail">
+                <div class="image" style="background-image: url(<%= dragon.image %>)"></div>
+                <div class="caption">
+                    <h4> <%= dragon.name %> </h4>
+                </div>
+                <p>
+                    <a class="btn btn-primary" href="dragons/<%= dragon._id %>">More Info</a>
+                </p>
+            </div>
+        </div>
+    <%  }); %>
+</div>
+
+
+<% include ../partials/footer %>

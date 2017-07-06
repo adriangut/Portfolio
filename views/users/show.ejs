@@ -1,0 +1,27 @@
+<% include ../partials/header %>
+
+
+<div class="row">
+    <div class="col-md-4">
+        <h1><%= user.firstName + " " + user.lastName %></h1>
+        <div class="thumbnail">
+            <img src="<%= user.avatar %>" alt="user profile image"></img>
+        </div>
+        <div class="caption">
+            <a href="mailto:<%= user.email %>"><%= user.email %></a>
+        </div>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, quidem, beatae sequi a et optio totam quam molestiae quisquam eum odit reprehenderit ex aliquid aut nulla explicabo illo consequuntur magnam!
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi, expedita beatae natus praesentium? Aliquid, recusandae praesentium illo porro quod. Pariatur, dolore minus sit esse porro eos voluptas ea distinctio maiores!
+    </div>
+    <div class="col-md-8">
+        <h3><%= user.username %>'s dragons:</h3>
+        <ul>
+        <% dragons.forEach(function(dragon){ %>
+            <li><a href="/dragons/<%=dragon.id%>"><%= dragon.name %></a></li>
+        <% }) %>
+        </ul>
+    </div>
+</div>
+
+
+<% include ../partials/footer %>
