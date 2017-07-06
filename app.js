@@ -22,8 +22,8 @@ var commentRoutes   = require("./routes/comments"),
 
 //initializing database
 mongoose.Promise = global.Promise;
-// mongoose.connect("mongodb://localhost/yelp_camp_FINAL"); //LOCAL DATABASE CONNECTION
-mongoose.connect("mongodb://adrian:krakow2015@ds151452.mlab.com:51452/dragonslayer");
+var url          = process.env.DATABASEURL || "mongodb://localhost/yelp_camp_FINAL";
+mongoose.connect(url);
 
 //initializing core
 app.use(bodyParser.urlencoded({extended: true}));
