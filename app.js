@@ -12,17 +12,20 @@ var express         = require("express"),
     seedDB          = require("./seeds"),
     app             = express();
     
-//CONFIGURE DOTENV
+//configure dotenv
 require("dotenv").load()
     
-//REQUIRING ROUTES    
+//requiring routes    
 var commentRoutes   = require("./routes/comments"),
     dragonRoutes    = require("./routes/dragons"),
     indexRoutes     = require("./routes/index");
 
-//INITIALIZING CORE FUNCTIONS
+//initializing database
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/yelp_camp_FINAL");
+// mongoose.connect("mongodb://localhost/yelp_camp_FINAL"); //LOCAL DATABASE CONNECTION
+mongoose.connect("mongodb://adrian:krakow2015@ds151452.mlab.com:51452/dragonslayer");
+
+//initializing core
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -32,21 +35,21 @@ app.use(flash());
 app.locals.moment = require("moment");
 // seedDB();    //SEED THE DATABASE, DEPRECATED, REMAINS FOR HISTORICAL PURPOSES
 
-//PASSPORT CONFIGURATION
+//passport configuration
 app.use(require("express-session")({
     secret: "The cutest cat I know is my girlfriend's",
     resave: false,
     saveUninitialized: false
 }));
 
-//INITIALIZING USER FUNCTIONS
+//initializing user functions
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-//FORWARDING TO ALL FILES
+//forwarding to all files
 app.use(function(req, res, next){
     res.locals.currentUser = req.user;
     res.locals.error = req.flash("error");
@@ -54,13 +57,13 @@ app.use(function(req, res, next){
     next();
 });
 
-//DECLARING ROUTES
+//declaring routes
 app.use("/dragons", dragonRoutes);
 app.use("/dragons/:id/comments", commentRoutes);
 app.use(indexRoutes);
 
 
-//TURNING THE SITE ON
+//turning the site on
 app.listen(process.env.PORT, process.env.IP, function(){
     console.log("DragonSlayer server has started.");
 });
