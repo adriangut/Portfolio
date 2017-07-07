@@ -1,4 +1,4 @@
-##DragonSlayer
+# DragonSlayer
 
 * Add Landing Page
 * Add Dragons Page that lists all dragons
@@ -124,15 +124,15 @@ Each Dragon has:
 * Add Edit button
 * Add Update route
 
-Dragon Edit Route: <!--/dragons/:id/edit-->
-Comment Edit Route:   <!--/dragons/:id/comments/:comment_id/edit-->
+<!--Dragon Edit Route: <!--/dragons/:id/edit-->
+<!--Comment Edit Route:   <!--/dragons/:id/comments/:comment_id/edit-->
 
 #Deleting Comments
 * Add Destroy route
 * Add Delete button
 
-Dragon Destroy Route: /dragons/:id
-Comment Destroy Route:    /dragons/:id/comments/:comment_id
+<!--Dragon Destroy Route: /dragons/:id-->
+<!--Comment Destroy Route:    /dragons/:id/comments/:comment_id-->
 
 #Authorization Part 2: Comments
 * User can only edit his/her comments
@@ -146,16 +146,16 @@ Comment Destroy Route:    /dragons/:id/comments/:comment_id
 * Add bootstrap alerts to header
 
 #Adding Landing Page Styles
-* Styling the basics
-* Adding modernizr
+* Style the basics
+* Add modernizr
 
 #Dynamic Prices
-* Adding price to dragon model, with a min value of 0 and a step of 0.01
-* Making the show page dynamically update the price if edited
-* Showing price as 'Free!' if equal to 0
+* Add price to dragon model, with a min value of 0 and a step of 0.01
+* Make the show page dynamically update the price if edited
+* Show price as 'Free!' if equal to 0
 
 #Searchbar
-* Adding searchbar to index page
+* Add searchbar to index page
 * Setup for dynamic searchbar via AJAX
 
 #Styling Index Page
