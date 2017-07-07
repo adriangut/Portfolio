@@ -1,9 +1,9 @@
-#YelpCamp
+##DragonSlayer
 
 * Add Landing Page
-* Add Campgrounds Page that lists all campgrounds
+* Add Dragons Page that lists all dragons
  
-Each Campground has:
+Each Dragon has:
  * Name
  * Image
 
@@ -12,32 +12,32 @@ Each Campground has:
 * Create our header and footer partials
 * Add in Bootstrap
 
-#Creating New Campgrounds
+#Creating New Dragons
 
-* Setup new campground POST route
+* Setup new dragon POST route
 * Add in body-parser
 * Setup route to show form
 * Add basic unstyled form* 
 
-#Style the campgrounds page
+#Style the dragons page
 
 * Add a better header/title
-* Make campgrounds display in a grid* 
+* Make dragons display in a grid* 
 
 #Style the Navbar and Form
 
 * Add a navbar to all templates
-* Style the new campground form
+* Style the new dragon form
 
 #Add Mongoose
 
 * Install and configure mongoose
-* Setup campgrounds model
-* Use campgrounds model inside of our routes!
+* Setup dragons model
+* Use dragons model inside of our routes!
 
 #Show Page
 * Review the RESTful routes we've seen so far
-* Add description to our campground model
+* Add description to our dragon model
 * Show db.collections.drop()
 * Add a show route/template
 
@@ -52,7 +52,7 @@ Each Campground has:
 
 #Add the Comment Model!
 * Make our errors go away!
-* Display comments on campground show page
+* Display comments on dragon show page
 
 #Comment New/Create
 * Discuss nested routes
@@ -100,23 +100,23 @@ Each Campground has:
 * Associate Users and Comments
 * Save author's name to a comment automatically
 
-#Users + Campgrounds
-* Prevent an unauthenticated user from creating a campground
-* Save username+id to newly created campground
+#Users + Dragons
+* Prevent an unauthenticated user from creating a dragon
+* Save username+id to newly created dragon
 
-# Editing Campgrounds
+#Editing Dragons
 * Add Method-Override
-* Add Edit Route for Campgrounds
+* Add Edit Route for Dragons
 * Add Link to Edit Page
 * Add Update Route
 
-#Deleting Campgrounds
+#Deleting Dragons
 * Add Destroy Route
 * Add Delete button
 
-#Authorization Part 1: Campgrounds
-* User can only edit his/her campgrounds
-* User can only delete his/her campgrounds
+#Authorization Part 1: Dragons
+* User can only edit his/her dragons
+* User can only delete his/her dragons
 * Hide/Show edit and delete buttons
 
 #Editing Comments
@@ -124,15 +124,15 @@ Each Campground has:
 * Add Edit button
 * Add Update route
 
-Campground Edit Route: <!--/campgrounds/:id/edit-->
-Comment Edit Route:   <!--/campgrounds/:id/comments/:comment_id/edit-->
+Dragon Edit Route: <!--/dragons/:id/edit-->
+Comment Edit Route:   <!--/dragons/:id/comments/:comment_id/edit-->
 
 #Deleting Comments
 * Add Destroy route
 * Add Delete button
 
-Campground Destroy Route: /campgrounds/:id
-Comment Destroy Route:    /campgrounds/:id/comments/:comment_id
+Dragon Destroy Route: /dragons/:id
+Comment Destroy Route:    /dragons/:id/comments/:comment_id
 
 #Authorization Part 2: Comments
 * User can only edit his/her comments
@@ -150,61 +150,25 @@ Comment Destroy Route:    /campgrounds/:id/comments/:comment_id
 * Adding modernizr
 
 #Dynamic Prices
+* Adding price to dragon model, with a min value of 0 and a step of 0.01
+* Making the show page dynamically update the price if edited
+* Showing price as 'Free!' if equal to 0
 
 #Searchbar
+* Adding searchbar to index page
+* Setup for dynamic searchbar via AJAX
 
 #Styling Index Page
+* Update the dragons to take less space in higher resolutions
+* Modify footer to have more info (will apply to all pages)
 
 #Adding User Profiles
+* Add firstName, lastName, email and avatar vars to user model
+* Can be set during registration
+* Style user pages
+* Add lorem ipsum in potential user.description div
 
 #Adding Admin User Type
-
-#REMAKING YELPCAMP TO DRAGONSLAYER, A PAGE ABOUT DRAGONS
-
-* BOOTSTRAP NAV COLLPASE JS
-* Flash Messages
-* Refactor container div to header
-* Show/hide delete and update buttons
-* style login/register forms
-* Random Background Landing Page
-* Refactor middleware
-* change styling in show template - comment delete/update
-* UPDATE/DELETE CAMPGROUND
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-RESTFUL routes
-name    path            verb    purpose                                             mongoose method
-=====================================================================================================
-index   /dogs           GET     List all dogs                                       dog.find()
-new     /dogs/new       GET     Show new dog form                                   N/A
-create  /dogs           POST    Create a new dog, then redirect somewhere           dog.create()
-show    /dogs/:id       GET     Show info about one specific dog                    dog.findById()
-edit    /dogs/:id/edit  GET     Show edit form for one dog                          dog.findById()
-update  /dogs/:id       PUT     Update a particular dog, then redirect somewhere    dog.findByIdAndUpdate()
-destroy /dogs/:id       DESTROY Delete a particular dog, then redirect somewhere    dog.findByIdAndRemove()
-
-INDEX   /campgrounds        GET
-NEW     /campgrounds/new    GET
-CREATE  /campgrounds        POST
-SHOW    /campgrounds/:id    GET
-
-//comments
-
-NEW     /campgrounds/:id/comments/new   GET
-CREATE  /campgrounds/:id/comments       POST
+* Add a isAdmin bool to user model
+* Add a pass to check for during registration
+* Add the ability to edit and delete regardless of ownership for admin type users
