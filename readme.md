@@ -10,3 +10,8 @@ All users may comment under each dragon, and owners/admins may edit or delete th
 
 DragonSlayer is hosted on [Heroku](https://radiant-caverns-41410.herokuapp.com).
 Thus, no setup is required.
+
+
+## Credits
+
+This website was created from scratch through Colt Steele's [The Web Developer Bootcamp](https://www.udemy.com/the-web-developer-bootcamp/learn/v4/overview).
